@@ -1,0 +1,122 @@
+:root {
+  --font-heading: "Syne", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-bg: #0a0a1a;
+  --color-text: #e0e0e0;
+  --color-primary: #8a2be2;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    var(--color-primary) 0%,
+    rgba(10, 10, 26, 0) 60%
+  );
+  opacity: 0.3;
+  filter: blur(100px);
+  z-index: -1;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.quote-card {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+.quote-card.loading {
+  opacity: 0.7;
+}
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.quote-content {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 2rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.quote-text {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  font-style: normal;
+}
+button {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.tagline {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+}
